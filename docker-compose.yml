@@ -1,0 +1,28 @@
+version: '3'
+services:
+  api_server:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./api_service
+    volumes:
+      - /app/node_modules
+      - ./api_service:/app
+    expose:
+      - '3100'
+    ports:
+      - '3100:3100'
+    links:
+      - data_server
+  data_server:
+    build:
+      dockerfile: Dockerfile
+      context: ./data_service
+    volumes:
+      - /app/node_modules
+      - ./data_service:/app
+    expose:
+      - '3101'
+    ports:
+      - '3101:3101'
+ 

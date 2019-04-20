@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: data-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: data 
+    spec:     # pod spec                  
+      containers: 
+      - name: data
+        image: tharindu27/data_service:latest # image we pushed
+        ports:
+        - containerPort: 3101
