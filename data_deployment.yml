@@ -13,4 +13,5 @@ spec:
       - name: data
         image: tharindu27/data_service:latest # image we pushed
         ports:
-        - containerPort: 3101
+        - name: http
+          containerPort: 3101
