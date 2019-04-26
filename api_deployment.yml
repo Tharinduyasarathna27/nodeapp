@@ -9,8 +9,9 @@ spec:
     
   ports:
   - protocol: "TCP"
-    port: 3101
+    port: 3100
     targetPort: 3101
+    name: data-deployment
   type: LoadBalancer
 
 
