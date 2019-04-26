@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta1
+kind: Service
+metadata:
+  name: api
+spec:
+  selector:
+    app: api
+    
+  ports:
+  - Image: tharindu27/api_service:latest
+    port:
+    name: api
+  type: LoadBalancer
+containerPort: 3100
+   imagePullPolicy: Always
+
+   -name: data
+    Image: tharindu27/data_service:latest
+    Ports: 
+  type: LoadBalancer
+containerPort: 3101
+   imagePullPolicy: Always
